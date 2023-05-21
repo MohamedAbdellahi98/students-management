@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Models\User;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
+
+class UpdateStandardUserPassword extends Command
+{
+    protected $signature = 'standard:update-password {email} {password}';
+    protected $description = 'Update the password of a standard user';
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    public function handle()
+    {
+        $email = $this->argument('email');
+        $newPassword = $this->argument('password');
+
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            $this->error("User not found with email: {$email}");
+            return 1;
+        }
+
+        if ($user->role !== 'standard') {
+            $this->error("This command is for standard users only.");
+            return 1;
+        }
+
+        $user->password = Hash::make($newPassword);
+        $user->save();
+
+        $this->info("Password updated successfully for user: {$email}");
+        return 0;
+    }
+}
