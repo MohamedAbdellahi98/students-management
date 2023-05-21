@@ -9,29 +9,9 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-   /*  public function index()
-    {
-        $messages = Message::where(function ($query) {
-                $query->where('receiver_id', auth()->user()->id)
-                    ->where('deleted_by_receiver', false);
-            })
-            ->orWhere(function ($query) {
-                $query->where('sender_id', auth()->user()->id)
-                    ->where('deleted_by_sender', false);
-            })
-            ->get();
-
-        return view('messages.index', compact('messages'));
-    } */
-/*     public function index()
-    {
-        $messages = Message::all();
-        return view('messages.index', compact('messages'));
-    } */
 
     public function index()
     {
-
         $user = auth()->user();
 
         if ($user->role === 'admin') {
@@ -53,8 +33,6 @@ class MessageController extends Controller
         return view($view, compact('messages'));
     }
 
-
-
     public function show(Message $message)
     {
         // Check if the user has permission to view the message
@@ -69,7 +47,6 @@ class MessageController extends Controller
         $view = (auth()->user()->role === 'admin') ? 'messages.show' : 'standard_users.messages.show';
         return view($view, compact('message', 'replies'));
     }
-
 
 
     public function reply(Request $request, Message $message)
@@ -95,43 +72,6 @@ class MessageController extends Controller
             return redirect()->route('standard.messages.show', $message)->with('success', 'Reply sent successfully.');
         }
     }
-/*
-    public function indexStandardUser()
-    {
-        $userId = auth()->user()->id;
-        $messages = Message::where(function ($query) use ($userId) {
-                $query->where('receiver_id', $userId)
-                    ->where('deleted_by_receiver', false)
-                    ->whereHas('sender', function ($query) {
-                        $query->where('role', 'admin');
-                    });
-            })
-            ->orWhere(function ($query) use ($userId) {
-                $query->where('sender_id', $userId)
-                    ->where('deleted_by_sender', false)
-                    ->whereHas('receiver', function ($query) {
-                        $query->where('role', 'admin');
-                    });
-            })
-            ->get();
-
-        return view('standard_users.messages.index', compact('messages'));
-    } */
-/*     public function indexStandardUser()
-    {
-        $userId = auth()->user()->id;
-        $messages = Message::where('receiver_id', $userId)
-            ->orWhere(function ($query) use ($userId) {
-                $query->where('sender_id', $userId)
-                    ->whereHas('receiver', function ($query) {
-                        $query->where('role', 'admin');
-                    });
-            })
-            ->get();
-
-        return view('standard_users.messages.index', compact('messages'));
-    } */
-
 
     public function createStandardUser()
     {

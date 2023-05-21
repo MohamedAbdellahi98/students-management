@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Student Management</title>
+    <title>Students Management System</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,24 +16,18 @@
     <!-- AdminLTE CSS -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/fontawesome-free/css/all.min.css') }}">
-    
+
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <a href="{{ url('/') }}" class="brand-link">
-                <span class="brand-text font-weight-light">Student Management</span>
-            </a>
-        </ul>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             @if (Route::has('login'))
                 @auth
                     <li class="nav-item">
-                        <a href="{{ url('/dashboard') }}" class="nav-link">Dashboard</a>
+                    <a href="{{ auth()->user()->is_admin ? url('dashboard') : url('/standard_users/dashboard') }}" class="nav-link">Dashboard</a>
                     </li>
                 @else
                     <li class="nav-item">
@@ -49,7 +43,6 @@
         </ul>
     </nav>
     <!-- /.navbar -->
-
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -76,7 +69,7 @@
                                 </div>
                         <div class="card-footer text-center">
                             @auth
-                                <a href="{{ url('/dashboard') }}" class="btn btn-primary">Dashboard</a>
+                                <a href="{{ auth()->user()->is_admin ? url('dashboard') : url('/standard_users/dashboard') }}" class="btn btn-primary">Dashboard</a>
                             @else
                                 <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
                                 @if (Route::has('register'))

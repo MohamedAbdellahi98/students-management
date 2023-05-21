@@ -1,8 +1,9 @@
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <!-- User panel -->
-        <li class="nav-item d-none d-sm-inline-block">
+        <li class="nav-item ">
             <div class="user-panel d-flex">
                 <div class="image">
                     <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
@@ -13,11 +14,6 @@
             </div>
         </li>
 
-
-        <form action="{{ route('standard.students.search') }}" method="GET" class="form-inline">
-            <input type="text" name="query" class="form-control" placeholder="Search by ID or name">
-            <button type="submit" class="btn btn-primary ml-2">Search</button>
-        </form>
     </ul>
 
     <!-- Right navbar links -->
@@ -69,4 +65,5 @@
             </form>
         </li>
     </ul>
+
 </nav>

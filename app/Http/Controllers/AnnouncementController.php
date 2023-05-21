@@ -10,23 +10,20 @@ class AnnouncementController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->role !== 'admin') {
+        $user = Auth::user();
+        if ($user->role !== 'admin' && $user->role !== 'standard') {
             return abort(403, 'Unauthorized action.');
         }
 
         $announcements = Announcement::all();
-        return view('announcements.index', compact('announcements'));
-    }
 
-    public function indexStandardUser()
-    {
-        if (Auth::user()->role !== 'standard') {
-            return abort(403, 'Unauthorized action.');
+        if ($user->role === 'admin') {
+            return view('announcements.index', compact('announcements'));
+        } else {
+            return view('standard_users.announcements.index', compact('announcements'));
         }
-
-        $announcements = Announcement::all();
-        return view('standard_users.announcements.index', compact('announcements'));
     }
+
 
     public function create()
     {
@@ -81,5 +78,5 @@ class AnnouncementController extends Controller
         $announcement->delete();
         return redirect()->route('announcements.index')->with('success', 'Announcement deleted successfully.');
     }
-    
+
 }

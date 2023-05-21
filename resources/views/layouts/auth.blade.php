@@ -32,7 +32,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <a href="{{ url('/') }}" class="brand-link">
-                <span class="brand-text font-weight-light">Student Management</span>
+                <span class="brand-text font-weight-light">Students Management System</span>
             </a>
         </ul>
         <!-- Right navbar links -->

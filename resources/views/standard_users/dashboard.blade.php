@@ -5,17 +5,20 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
+            <div class="row justify-content-between">
                 <div class="col-sm-6">
                     <h1 class="m-0">Standard User Dashboard</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol>
-                </div><!-- /.col -->
+                <div>
+                    <form action="{{ route('standard.students.search') }}" method="GET" class="form-inline position-relative">
+                        <input type="text" name="query" class="form-control" placeholder="Search by ID or name">
+                        <button type="submit" class="btn position-absolute" style="right: 0; top: 0; border-radius: 0; background-color: transparent;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
             </div><!-- /.row -->
+
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -65,6 +68,7 @@
                 </div>
             </div>
         </div><!--/. container-fluid -->
+
     </section>
     <!-- /.content -->
 </div>
