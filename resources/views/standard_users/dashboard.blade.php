@@ -25,8 +25,6 @@
 
     <!-- Main content -->
     <section class="content">
-
-
         <div class="container-fluid">
             <!-- Info boxes -->
             <div class="row">
@@ -68,7 +66,6 @@
                 </div>
             </div>
         </div><!--/. container-fluid -->
-
     </section>
     <!-- /.content -->
 </div>

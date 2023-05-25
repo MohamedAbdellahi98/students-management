@@ -16,28 +16,28 @@ class StudentsTableSeeder extends Seeder
     {
         \DB::table('students')->insert([
             [
-                'name' => 'John Doe',
-                'email' => 'john.doe@example.com',
+                'name' => 'Omer Ali',
+                'email' => 'Omer.ali@example.com',
                 'department' => 'Computer Science',
             ],
             [
-                'name' => 'Jane Smith',
-                'email' => 'jane.smith@example.com',
+                'name' => ' Ahmet Demir',
+                'email' => ' ahmet.demir@example.com',
                 'department' => 'Physics',
             ],
             [
-                'name' => 'Alice Brown',
-                'email' => 'alice.brown@example.com',
+                'name' => 'Elif Yılmaz',
+                'email' => 'elif.yilmaz@example.com',
                 'department' => 'Mathematics',
             ],
             [
-                'name' => 'Bob Johnson',
-                'email' => 'bob.johnson@example.com',
+                'name' => 'Fatima Kaya',
+                'email' => 'fatima.kaya@example.com',
                 'department' => 'Chemistry',
             ],
             [
-                'name' => 'Charlie Davis',
-                'email' => 'charlie.davis@example.com',
+                'name' => 'Kemal Davis',
+                'email' => 'kemal.davis@example.com',
                 'department' => 'Biology',
             ],
         ]);

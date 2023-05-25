@@ -1,5 +1,4 @@
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <!-- User panel -->
@@ -13,11 +12,9 @@
                 </div>
             </div>
         </li>
-
     </ul>
 
     <!-- Right navbar links -->
-
     <ul class="navbar-nav ml-auto">
         <!-- Dropdown menu -->
         <li class="nav-item dropdown">

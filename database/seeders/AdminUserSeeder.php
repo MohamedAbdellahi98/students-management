@@ -15,14 +15,13 @@ class AdminUserSeeder extends Seeder
             'name' => 'Mohamed',
             'email' => 'Mohamed@gmail.com',
             'email_verified_at' => now(),
-            'password' => Hash::make('Mm112233'),
+            'password' => Hash::make('12345678'),
             'created_at' => now(),
             'updated_at' => now(),
-            'role' => 'Admin',
-            'is_admin' => 1, // Set the "is_admin" field to 1 for the admin user
+            'role' => 'admin',
+            'is_admin' => 1,
         ]);
     }
-
 
 }
 
