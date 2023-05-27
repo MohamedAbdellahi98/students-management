@@ -46,14 +46,12 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:students',
-            /* 'student_id' => 'required|string|max:255|unique:students', */
             'department' => 'required|string|max:255',
         ]);
 
         $student = new Student([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            /* 'student_id' => $request->input('student_id'), */
             'department' => $request->input('department'),
         ]);
 
@@ -80,7 +78,6 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:students,email,' . $student->id,
-            /* 'student_id' => 'required|string|max:255|unique:students,student_id,' . $student->id, */
             'department' => 'required|string|max:255',
         ]);
 

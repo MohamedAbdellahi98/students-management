@@ -20,13 +20,16 @@ class ProfileController extends Controller
 
     public function updatePassword(Request $request)
     {
+         // Validates the request, checks if current_password and new_password fields are provided
+        // and new_password is confirmed and has a minimum length of 8
         $request->validate([
             'current_password' => 'required',
             'new_password' => 'required|confirmed|min:8',
         ]);
 
         $user = Auth::user();
-
+        
+        // Checks if the provided current password matches the stored password of the user
         if (!Hash::check($request->current_password, $user->password)) {
             return back()->withErrors(['current_password' => 'The current password is incorrect.']);
         }

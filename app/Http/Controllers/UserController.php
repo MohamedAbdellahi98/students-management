@@ -50,6 +50,8 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'User created successfully');
     }
+
+    // This function protects the main admin user from being modified or deleted
     private function protectMainAdmin(User $user)
     {
 
@@ -117,5 +119,4 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 
-    //
 }

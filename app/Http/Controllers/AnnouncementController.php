@@ -27,6 +27,7 @@ class AnnouncementController extends Controller
 
     public function create()
     {
+        // Only an admin can create an announcement
         if (Auth::user()->role !== 'admin') {
             return abort(403, 'Unauthorized action.');
         }

@@ -11,6 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // Count of Users, Students, Announcements, and Messages
         $usersCount = User::count();
         $studentsCount = Student::count();
         $announcementsCount = Announcement::count();

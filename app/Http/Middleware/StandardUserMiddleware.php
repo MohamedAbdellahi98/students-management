@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 class StandardUserMiddleware
 {
     /**
-     * Handle an incoming request.
-     *
+     * This middleware checks if the authenticated user is a standard user (not an admin)
+     * If the user is an admin, it redirects the user to the home route
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next)

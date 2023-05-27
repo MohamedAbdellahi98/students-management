@@ -13,7 +13,8 @@ class MessageController extends Controller
     public function index()
     {
         $user = auth()->user();
-
+        
+        // Fetch all messages for admin and only specific messages for standard users
         if ($user->role === 'admin') {
             $messages = Message::all();
             $view = 'messages.index';

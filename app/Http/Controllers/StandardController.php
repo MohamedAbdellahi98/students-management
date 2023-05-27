@@ -18,7 +18,8 @@ class StandardController extends Controller
     public function searchStudents(Request $request)
     {
         $query = $request->input('query');
-
+        
+        // Searches students table in DB for matching 'id' or 'name' with the query
         $students = DB::table('students')
             ->where('id', '=', $query)
             ->orWhere('name', 'LIKE', "%$query%")
