@@ -39,6 +39,9 @@ To get the project up and running on your local machine, follow these steps:
 * Kalid, ID: 2110206565
 * Yahye, ID: 1910206553
 
+## IBP Presentation video
+[https://youtu.be/-HH1rUbvLCA]
+
 ## Screenshots
 <table>
   <tr>
